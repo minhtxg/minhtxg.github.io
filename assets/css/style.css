@@ -93,6 +93,11 @@
   --transition-2: 0.5s ease-in-out;
 
 }
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -130,6 +135,10 @@ input, textarea {
 html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black); }
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
 
 .sidebar,
 article {
@@ -259,11 +268,26 @@ article.active {
 }
 
 
+
+
+
+/*-----------------------------------*\
+  #MAIN
+\*-----------------------------------*/
+
 main {
   margin: 15px 12px;
   margin-bottom: 75px;
   min-width: 259px;
 }
+
+
+
+
+
+/*-----------------------------------*\
+  #SIDEBAR
+\*-----------------------------------*/
 
 .sidebar {
   margin-bottom: 15px;
@@ -397,6 +421,14 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
+
+
+
+
+/*-----------------------------------*\
+  #NAVBAR
+\*-----------------------------------*/
+
 .navbar {
   position: fixed;
   bottom: 0;
@@ -430,6 +462,14 @@ main {
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
+
+
+
+
+/*-----------------------------------*\
+  #ABOUT
+\*-----------------------------------*/
+
 .about .article-title { margin-bottom: 15px; }
 
 .about-text {
@@ -440,6 +480,12 @@ main {
 }
 
 .about-text p { margin-bottom: 15px; }
+
+
+
+/**
+ * #service 
+ */
 
 .service { margin-bottom: 35px; }
 
@@ -484,7 +530,54 @@ main {
   line-height: 1.6;
 }
 
+/**
+ * #clients 
+ */
+
+.clients { margin-bottom: 15px; }
+
+.clients-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 0 -15px;
+  padding: 25px;
+  padding-bottom: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 25px;
+}
+
+.clients-item {
+  min-width: 50%;
+  scroll-snap-align: start;
+}
+
+.clients-item img {
+  width: 100%;
+  filter: grayscale(1);
+  transition: var(--transition-1);
+}
+
+.clients-item img:hover { filter: grayscale(0); }
+
+
+
+
+
+/*-----------------------------------*\
+  #RESUME
+\*-----------------------------------*/
+
 .article-title { margin-bottom: 30px; }
+
+
+/**
+ * education and experience 
+ */
 
 .timeline { margin-bottom: 30px; }
 
@@ -545,6 +638,10 @@ main {
 }
 
 
+/**
+ * skills 
+ */
+
 .skills-title { margin-bottom: 20px; }
 
 .skills-list { padding: 20px; }
@@ -577,6 +674,14 @@ main {
   height: 100%;
   border-radius: inherit;
 }
+
+
+
+
+
+/*-----------------------------------*\
+  #PORTFOLIO
+\*-----------------------------------*/
 
 .filter-list { display: none; }
 
@@ -729,6 +834,13 @@ main {
   font-weight: var(--fw-300);
 }
 
+
+
+
+/*-----------------------------------*\
+  #CONTACT
+\*-----------------------------------*/
+
 .mapbox {
   position: relative;
   height: 250px;
@@ -828,16 +940,56 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
+
+
+
+
+/*-----------------------------------*\
+  #RESPONSIVE
+\*-----------------------------------*/
+
+/**
+ * responsive larger than 450px screen
+ */
+
 @media (min-width: 450px) {
+
+  /**
+   * client
+   */
+
   .clients-item { min-width: calc(33.33% - 10px); }
+
+
+
+  /**
+   * #PORTFOLIO, BLOG 
+   */
 
   .project-img,
   .blog-banner-box { height: auto; }
 
 }
 
+
+
+
+
+/**
+ * responsive larger than 580px screen
+ */
+
 @media (min-width: 580px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
   :root {
+
+    /**
+     * typography
+     */
 
     --fs-1: 32px;
     --fs-2: 24px;
@@ -848,6 +1000,12 @@ textarea.form-input::-webkit-resizer { display: none; }
     --fs-8: 12px;
 
   }
+
+
+
+  /**
+   * #REUSED STYLE
+   */
 
   .sidebar, article {
     width: 520px;
@@ -872,10 +1030,22 @@ textarea.form-input::-webkit-resizer { display: none; }
     font-size: 18px;
   }
 
+
+
+  /**
+   * #MAIN
+   */
+
   main {
     margin-top: 60px;
     margin-bottom: 100px;
   }
+
+
+
+  /**
+   * #SIDEBAR
+   */
 
   .sidebar {
     max-height: 180px;
@@ -916,6 +1086,12 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: calc(100% - 64px);
   }
 
+
+
+  /**
+   * #NAVBAR
+   */
+
   .navbar { border-radius: 20px 20px 0 0; }
 
   .navbar-list { gap: 20px; }
@@ -923,9 +1099,16 @@ textarea.form-input::-webkit-resizer { display: none; }
   .navbar-link { --fs-8: 14px; }
 
 
+
+  /**
+   * #ABOUT
+   */
+
   .about .article-title { margin-bottom: 20px; }
 
   .about-text { margin-bottom: 40px; }
+
+  /* service */
 
   .service-item {
     display: flex;
@@ -942,6 +1125,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .service-content-box { text-align: left; }
 
+  /**
+   * #RESUME
+   */
 
   .timeline-list { margin-left: 65px; }
 
@@ -956,12 +1142,22 @@ textarea.form-input::-webkit-resizer { display: none; }
   .skills-item:not(:last-child) { margin-bottom: 25px; }
 
 
+
+  /**
+   * #PORTFOLIO, BLOG
+   */
+
   .project-img, .blog-banner-box { border-radius: 16px; }
 
   .blog-posts-list { gap: 30px; }
 
   .blog-content { padding: 25px; }
 
+
+
+  /**
+   * #CONTACT
+   */
 
   .mapbox {
     height: 380px;
@@ -1028,15 +1224,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   /**
    * ABOUT
    */
-
-  /* testimonials modal */
-
-  .testimonials-modal {
-    gap: 35px;
-    max-width: 680px;
-  }
-
-  .modal-avatar-box img { width: 80px; }
 
 
 
